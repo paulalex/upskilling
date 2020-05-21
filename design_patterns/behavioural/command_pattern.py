@@ -51,12 +51,12 @@ if __name__ == "__main__":
     light = Light()
     light_off_command = LightOffCommand(light)
     light_on_command = LightOnCommand(light)
-    light_controller = LightSwitch()
+    light_switch = LightSwitch()
 
     # Turn the light on
-    light_controller.set_command(light_on_command)
-    light_controller.press_switch()
+    light_switch.set_command(light_on_command)
+    light_switch.press_switch()
 
     # Turn the light off
-    light_controller.set_command(light_off_command)
-    light_controller.press_switch()
+    light_switch.set_command(light_off_command)
+    light_switch.press_switch()
