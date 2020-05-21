@@ -21,10 +21,7 @@ class UKPlug:
 
 class EuropeanPlug:
     """
-    The Adaptee contains some useful behavior, but its interface is incompatible
-    with the existing client code. 
-    
-    The Adaptee needs some adaptation before the client code can use it.
+    Standard plug, works out of the box with the socket in question and requires no adaption.
     """
 
     def two_pin_plug(self) -> str:
