@@ -28,7 +28,34 @@ Generally design patterns are broken down into three main categories, behavioura
 
 ### Structural
 
-* Adapter - Match conflicting interfaces
-* Decorator - Add additional functionality to objects without changing their interface or implementation
+* Adapter Pattern - Match conflicting interfaces
+* Decorator Pattern - Add additional functionality to objects without changing their interface or implementation
 * Facade Pattern - Hide complexity behind a simplified interface
 * Proxy Pattern - Masquerade an object as another, hiding the original object
+
+## When are these patterns useful
+
+## Adapter Pattern
+
+## Builder Pattern
+
+## Command Pattern
+
+The Command Pattern is useful when:
+
+* A history of commands is needed (undo functionality for example)
+* You need callback functionality
+* Requests need to be handled at variant times or in variant orders
+* The invoker should be decoupled from the object handling the invocation.
+
+## Decorator Pattern
+
+## Facade Pattern
+
+## Factory Pattern
+
+## Observer Pattern
+
+## Proxy Pattern
+
+## Strategy Pattern
