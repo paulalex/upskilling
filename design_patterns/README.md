@@ -5,7 +5,7 @@ This repository contains some of the common design patterns that are used in sof
 
 A design pattern is a repeatable solution to a common problem encountered during software development and use of them can help to prevent subtle issues that can cause problems as development progresses.
 
-Design patterns help to promote loosely coupled code and provide a well known and well understood answer to a common problem, they help you to adhere to some of the common programming paradigms such as **SOLID**, **DRY** and **KISS** and hopefully they discourage you from creating your own ***anti-patterns***. 
+Design patterns help to promote loosely coupled code and provide a well known and well understood answer to a common problem, they help you to adhere to some of the common programming principles such as **SOLID**, **DRY** and **KISS** and hopefully they discourage you from creating your own ***anti-patterns***. Alternates to this principles might include **WET** or **Write everything twice** and **DIE** or **Duplication is evil**.
 
 Instead of creating your own solution to a common problem it is better to apply an existing and well understood solution that is easily testable and will be understood by other developers long after you have left the project.
 
