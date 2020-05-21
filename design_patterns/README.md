@@ -41,10 +41,11 @@ Generally design patterns are broken down into three main categories, behavioura
 
 ## Command Pattern
 
-The Command Pattern is useful when:
+The Command Pattern defines ***what*** is useful when:
 
 * A history of commands is needed (undo functionality for example)
 * You need callback functionality
+* You want to send a command to a remote function to be executed
 * Requests need to be handled at variant times or in variant orders
 * The invoker should be decoupled from the object handling the invocation.
 
@@ -56,7 +57,7 @@ The Command Pattern is useful when:
 
 ## Observer Pattern
 
-This command is useful when:
+The Observer pattern is useful when:
 
 * You are programming GUI's (swing, android etc) and you need a listener to call back when state changes
 * You need an event listener for any other reason
@@ -64,3 +65,9 @@ This command is useful when:
 ## Proxy Pattern
 
 ## Strategy Pattern
+
+The Strategy pattern defines ***how*** something should be done is useful when:
+
+* You want to create algorithms as objects and use them at runtime via a generic method that simply runs the algorithm
+* A good example would be a preference setting for how to save something
+* A sorting algorithm
