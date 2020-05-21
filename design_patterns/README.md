@@ -56,6 +56,11 @@ The Command Pattern is useful when:
 
 ## Observer Pattern
 
+This command is useful when:
+
+* You are programming GUI's (swing, android etc) and you need a listener to call back when state changes
+* You need an event listener for any other reason
+
 ## Proxy Pattern
 
 ## Strategy Pattern
