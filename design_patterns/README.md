@@ -37,11 +37,23 @@ Generally design patterns are broken down into three main categories, behavioura
 
 ## Adapter Pattern
 
+The adapter pattern is useful when:
+
+* You want to provide decoupling of objects
+* You have an existing object which fulfills your needs and it is incompatible with an existing API and do not want to make code changes to the API
+* You have an existing object and you want to pass it to a third party API you have no control over
+
 ## Builder Pattern
+
+The builder pattern is useful when:
+
+* You need to build complex objects but you dont want to pass all arguments into a large constructor
+* You want to decouple the building of objects and add additional functionality over time without changes to the objects constructor
+* You want to have more flexible control over the way objects are built and dont or cant use multiple constructors
 
 ## Command Pattern
 
-The Command Pattern defines ***what*** is useful when:
+The command pattern defines ***what*** is useful when:
 
 * A history of commands is needed (undo functionality for example)
 * You need callback functionality
@@ -51,22 +63,30 @@ The Command Pattern defines ***what*** is useful when:
 
 ## Decorator Pattern
 
+Decorators are supported out of the box when using python, and python also supports passing functions as arguments to another function.
+
+The decorator pattern is useful when:
+
+* You want to add additional functionality to an existing object without changing it (Open Closed Principle)
+* You do not want to sub class but still need to extend an object
+* You want to dynamically modify an objects properties and functionality
+
 ## Facade Pattern
 
 ## Factory Pattern
 
 ## Observer Pattern
 
-The Observer pattern is useful when:
+The observer pattern is useful when:
 
-* You are programming GUI's (swing, android etc) and you need a listener to call back when state changes
+* You are programming GUI's (swing, android etc) and you need a listener to call back when state changes (e.g register a callback with a button component)
 * You need an event listener for any other reason
 
 ## Proxy Pattern
 
 ## Strategy Pattern
 
-The Strategy pattern defines ***how*** something should be done is useful when:
+The strategy pattern defines ***how*** something should be done is useful when:
 
 * You want to create algorithms as objects and use them at runtime via a generic method that simply runs the algorithm
 * A good example would be a preference setting for how to save something
