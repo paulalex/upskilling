@@ -53,7 +53,7 @@ The builder pattern is useful when:
 
 ## Command Pattern
 
-The command pattern defines ***what*** is useful when:
+The command pattern defines ***what*** needs to done and is useful when:
 
 * A history of commands is needed (undo functionality for example)
 * You need callback functionality
