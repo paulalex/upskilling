@@ -90,6 +90,12 @@ The observer pattern is useful when:
 
 ## Proxy Pattern
 
+The proxy pattern is useful when:
+
+* You want a simplified version of an object that does some heavy or longer running set up
+* When you want a local representation of a remote object
+* When you want to protect access to parts of an object when presenting it to certain clients
+
 ## Strategy Pattern
 
 The strategy pattern defines ***how*** something should be done is useful when:
