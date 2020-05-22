@@ -73,6 +73,12 @@ The decorator pattern is useful when:
 
 ## Facade Pattern
 
+The facade pattern is useful when:
+
+* You want to hide complexity from a caller
+* You want to wrap functionality into single method without changing the original code
+* You want to hide functionality from callers behind a simple interface
+
 ## Factory Pattern
 
 ## Observer Pattern
