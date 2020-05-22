@@ -35,7 +35,7 @@ Generally design patterns are broken down into three main categories, behavioura
 
 ## When are these patterns useful
 
-## Adapter Pattern
+### Adapter Pattern
 
 The adapter pattern is useful when:
 
@@ -43,7 +43,7 @@ The adapter pattern is useful when:
 * You have an existing object which fulfills your needs and it is incompatible with an existing API and do not want to make code changes to the API
 * You have an existing object and you want to pass it to a third party API you have no control over
 
-## Builder Pattern
+### Builder Pattern
 
 The builder pattern is useful when:
 
@@ -51,7 +51,7 @@ The builder pattern is useful when:
 * You want to decouple the building of objects and add additional functionality over time without changes to the objects constructor
 * You want to have more flexible control over the way objects are built and dont or cant use multiple constructors
 
-## Command Pattern
+### Command Pattern
 
 The command pattern defines ***what*** needs to done and is useful when:
 
@@ -61,7 +61,7 @@ The command pattern defines ***what*** needs to done and is useful when:
 * Requests need to be handled at variant times or in variant orders
 * The invoker should be decoupled from the object handling the invocation.
 
-## Decorator Pattern
+### Decorator Pattern
 
 Decorators are supported out of the box when using python, and python also supports passing functions as arguments to another function.
 
@@ -71,7 +71,7 @@ The decorator pattern is useful when:
 * You do not want to sub class but still need to extend an object
 * You want to dynamically modify an objects properties and functionality
 
-## Facade Pattern
+### Facade Pattern
 
 The facade pattern is useful when:
 
@@ -79,16 +79,21 @@ The facade pattern is useful when:
 * You want to wrap functionality into single method without changing the original code
 * You want to hide functionality from callers behind a simple interface
 
-## Factory Pattern
+### Factory Pattern
 
-## Observer Pattern
+The factory pattern is useful when:
+
+* You want to create a family of products and you dont want to expose the implementation details
+* Often used to control creation of widgets, for example you might have UI element that is mac specific and another that is Windows specific
+
+### Observer Pattern
 
 The observer pattern is useful when:
 
 * You are programming GUI's (swing, android etc) and you need a listener to call back when state changes (e.g register a callback with a button component)
 * You need an event listener for any other reason
 
-## Proxy Pattern
+### Proxy Pattern
 
 The proxy pattern is useful when:
 
@@ -96,7 +101,7 @@ The proxy pattern is useful when:
 * When you want a local representation of a remote object
 * When you want to protect access to parts of an object when presenting it to certain clients
 
-## Strategy Pattern
+### Strategy Pattern
 
 The strategy pattern defines ***how*** something should be done is useful when:
 

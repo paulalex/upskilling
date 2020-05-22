@@ -17,16 +17,16 @@ class Singleton:
 
 if __name__ == "__main__":
     singleton = Singleton("Red")
-    print(singleton, "\n\n")
+    print(singleton, "\n")
 
     singleton = Singleton("Green")
-    print(singleton, "\n\n")
+    print(singleton, "\n")
 
     singleton = Singleton("Blue")
-    print(singleton, "\n\n")
+    print(singleton, "\n")
 
     singleton = Singleton("Purple")
-    print(singleton, "\n\n")
+    print(singleton, "\n")
 
     singleton = Singleton("Orange")
-    print(singleton, "\n\n")
+    print(singleton, "\n")
