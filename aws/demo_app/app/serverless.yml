@@ -1,0 +1,26 @@
+service: hello-world-serverless
+
+package:
+  individually: true
+
+provider:
+  name: aws
+  region: eu-west-2
+  stage: ${opt:stage,'dev'}
+  runtime: python3.8
+  stackTags:
+    PRODUCT: lab
+    STAGE: ${self:provider.stage}
+  apiGateway:
+    restApiId: ${ssm:/hello-world/hello_api_id/${self:provider.stage}}
+    restApiRootResourceId: ${ssm:/hello-world/hello_api_base/${self:provider.stage}}
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - http:
+          path: say/hello
+          method: get
+          cors: true
+          private: false
