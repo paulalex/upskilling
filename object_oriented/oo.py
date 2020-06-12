@@ -32,31 +32,37 @@ class Herbivore(Mammal):
         print("Eats plants only")
 
 class Human(Omnivore):
+    _name = None
     _eye_colour = None
     _hair_colour = None
     _build = None
 
-    def __init__(self, eye_colour: str, hair_colour: str, build: str) -> None:
+    def __init__(self, name: str, eye_colour: str, hair_colour: str, build: str) -> None:
         super().__init__()
+        self._name = name
         self._eye_colour = eye_colour
         self._hair_colour = hair_colour
         self._build = build
 
     def speak(self) -> None:
-        print("Speaks a human language")
+        print(f"Hello my name is {self._name}")
     
     def breathe(self) -> None:
         print("Breathes oxygen but uses an asthma inhaler")
+
+    def eat(self) -> None:
+        print("Eats burgers")
 
     def get_attributes(self) -> tuple:
         """Get the attributes of this Human, this is a method specific to this object type
 
         Returns:
+            name (str): The persons name
             eye_colour (str): The persons eye colour
             hair_colour (str): The person hair colour
             build (str): The persons build
         """
-        return (self._eye_colour, self._hair_colour, self._build)
+        return (self._name, self._eye_colour, self._hair_colour, self._build)
 
 class Dog(Carnivore):
     def speak(self) -> None:
@@ -83,11 +89,11 @@ if __name__ == "__main__":
     print("[INFO] Object Oriented Concepts Demo", end="\n\n")
 
     print("[INFO] Human")
-    human = Human("Black", "Green", "Medium")
-    human.eat()
-    human.breathe()
-    human.speak()
-    print(f"Human Attributes: {human.get_attributes()}")
+    john = Human("John", "Black", "Green", "Medium")
+    john.eat()
+    john.breathe()
+    john.speak()
+    print(f"Human Attributes: {john.get_attributes()}")
     print("\n")
 
     print("[INFO] Dog")
@@ -102,20 +108,28 @@ if __name__ == "__main__":
     cow.eat()
     cow.breathe()
     cow.speak()
+    print(cow.get_bell())
     print("\n")
 
     print("[INFO] Polymorphism - means an object can have many forms (it can be more than one thing...)")
-    print(f"Cow is a mammal {isinstance(cow, Animal)}")
-    print(f"Cow is a mammal {isinstance(cow, Mammal)}")
-    print(f"Cow is a herbivore {isinstance(cow, Herbivore)}")
-    print(f"Cow is a cow {isinstance(cow, Cow)}")
-    print(f"Cow is a dog {isinstance(cow, Dog)}")
+    print(f"Cow is an animal: {isinstance(cow, Animal)}")
+    print(f"Cow is a mammal: {isinstance(cow, Mammal)}")
+    print(f"Cow is a herbivore: {isinstance(cow, Herbivore)}")
+    print(f"Cow is a cow: {isinstance(cow, Cow)}")
+    print(f"Cow is a dog: {isinstance(cow, Dog)}")
+    print("\n")
+
+    print("[INFO] In many OO languages an abstract class CANNOT be instantiated")
+    try:
+        animal = Animal()
+    except Exception as e:
+        print(e)
     print("\n")
 
     print("[INFO] We can type cast an object to 'force' it into some other type that is in its inheritance tree")
-    human.breathe()
-    human.__class__ = Mammal
-    human.breathe()
+    john.breathe()
+    john.__class__ = Mammal
+    john.breathe()
     print("\n")
 
     print("[INFO] Its worth noting that python doesnt support method Overloading")
@@ -132,10 +146,3 @@ if __name__ == "__main__":
         print(add(1, 2))
     except Exception as e:
         print(e, end="\n\n")
-
-
-    print("[INFO] In many OO languages an abstract class CANNOT be instantiated")
-    try:
-        animal = Animal()
-    except Exception as e:
-        print(e)

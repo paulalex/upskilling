@@ -1,0 +1,10 @@
+version: '2'
+services:
+  database:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    env_file:
+      - database/database.env
+    volumes:
+      - "/c/Users/Ockle1P/dev/git_repos/ockleford/upskilling/aws/mad/database:/scripts"
