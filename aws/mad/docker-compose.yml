@@ -5,6 +5,6 @@ services:
     ports:
       - "5432:5432"
     env_file:
-      - database/database.env
+      - database/dev-db.env
     volumes:
       - "/c/Users/Ockle1P/dev/git_repos/ockleford/upskilling/aws/mad/database:/scripts"

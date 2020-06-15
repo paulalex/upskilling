@@ -1,4 +1,4 @@
-from app.src.utils import postgres_helper as db
+from app.src.helper import postgres_helper as db
 
 def create_request(email, customer_reference):
     db.execute_update("insert into request values(DEFAULT, %s, %s)", (email, customer_reference,))

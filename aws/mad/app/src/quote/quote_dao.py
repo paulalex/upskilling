@@ -1,4 +1,4 @@
-from app.src.utils import postgres_helper as db
+from app.src.helper import postgres_helper as db
 
 def create_quote(request_id, company_reg_number, registered_postcode):
     db.execute_update("insert into quote values(DEFAULT, %s, %s, %s)", (request_id, company_reg_number, registered_postcode,))

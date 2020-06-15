@@ -1,4 +1,4 @@
-from app.src.utils import postgres_helper as db
+from app.src.helper import postgres_helper as db
 
 def create_contract_item(quote_id, mpan):
     db.execute_update("insert into contract_item values(DEFAULT, %s, %s)", (quote_id, mpan,))
