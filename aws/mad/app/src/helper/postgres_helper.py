@@ -1,4 +1,6 @@
+import os
 import psycopg2
+
 
 def execute_update(statement, params):
     log(statement)
@@ -57,11 +59,16 @@ def execute_query(statement, params):
         raise e
 
 def get_connection():
-    return psycopg2.connect(user = "mad_user",
-                            password = "mad_password",
-                            host = "127.0.0.1",
-                            port = "5432",
-                            database = "mad_database")
+    db_user = os.environ['POSTGRES_USER']
+    db_pwd = os.environ['POSTGRES_PASSWORD']
+    db_database = os.environ['POSTGRES_DB']
+    db_host = os.environ['POSTGRES_HOST']
+    db_port = os.environ['POSTGRES_PORT']
+    return psycopg2.connect(user = db_user,
+                            password = db_pwd,
+                            database = db_database,
+                            host = db_host,
+                            port = db_port)
 
 # Make this a decorator
 def log(statement):

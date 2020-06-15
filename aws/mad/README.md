@@ -1,25 +1,31 @@
 # Master Acceptance Database Example Application
 
-`sudo mount --bind /mnt/c /c`
+Sample application based on the Master Acceptance Database, a number of the tables have been extracted and fields have been created in a postgres database and the resources exposed via a rest CRUD API.
 
-`docker-compose up -d`
+## Start development environment
 
-`docker-compose run -e PGPASSWORD=mad_password database psql --host=database --dbname=mad_database -U mad_user -f /scripts/mad.sql`
+`make start-dev`
 
-`docker-compose run database bash`
+## Start dev stack in detached mode
 
-`sudo apt install libpq-dev`
+`make dev-up`
 
-`python -m pip install --system psycopg2 -t ./lib`
+## Create database schema in development environment
 
-`docker-compose down -v`
+`make dev-schema`
 
+## Create development data
 
-sudo apt-get install postgresql postgresql-contrib
-sudo apt-get install libpq-dev # this is required as psycopg2 uses pg_config
-sudo apt-get install python-dev
+`make dev-data`
 
-ln -s /mnt/c/Users/Ockle1P/dev/git_repos/ockleford/upskilling/aws/mad/app/ ~/.python
+## Clean development environment
+
+`make dev-clean`
+
+## Run unit tests
+
+`make unit-test`
+
 
 
 
