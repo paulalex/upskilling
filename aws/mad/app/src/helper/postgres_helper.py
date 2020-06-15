@@ -1,7 +1,9 @@
 import os
+import functools
+
 import psycopg2
 
-
+@log
 def execute_update(statement, params):
     log(statement)
     connection = None
@@ -27,7 +29,7 @@ def execute_update(statement, params):
             connection.close()
 
         raise e
-
+@log
 def execute_query(statement, params):
     log(statement)
     connection = None
@@ -64,6 +66,7 @@ def get_connection():
     db_database = os.environ['POSTGRES_DB']
     db_host = os.environ['POSTGRES_HOST']
     db_port = os.environ['POSTGRES_PORT']
+    
     return psycopg2.connect(user = db_user,
                             password = db_pwd,
                             database = db_database,
