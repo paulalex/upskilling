@@ -1,4 +1,4 @@
-import request_service as service
+import app.src.request.request_service as service
 
 def create(email, customer_reference):
     service.create_request(email, customer_reference)

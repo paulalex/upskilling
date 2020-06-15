@@ -12,6 +12,8 @@
 
 `python -m pip install --system psycopg2 -t ./lib`
 
+`docker-compose down -v`
+
 
 sudo apt-get install postgresql postgresql-contrib
 sudo apt-get install libpq-dev # this is required as psycopg2 uses pg_config

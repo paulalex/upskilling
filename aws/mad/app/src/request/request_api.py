@@ -1,5 +1,4 @@
-import request_controller as controller
-
+import app.src.request.request_controller as controller
 
 def create_handler(event, context):
     customer_email = event.get("customer_email")
