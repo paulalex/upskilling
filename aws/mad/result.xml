@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="0" failures="0" hostname="LT-R90X4MK7" name="pytest" skipped="0" tests="1" time="0.082" timestamp="2020-06-16T09:15:28.645355"><testcase classname="app.test.unit.contract_item_tests" file="app/test/unit/contract_item_tests.py" line="6" name="test_create_handler" time="0.001"></testcase></testsuite></testsuites>

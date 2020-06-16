@@ -4,9 +4,6 @@ STAGE := "production"
 
 start-dev: dev-up dev-schema dev-data
 
-dev-env:
-	@export $(cat ./database/dev-db.env | xargs)
-
 dev-up:
 	@echo "[INFO] Starting development environment"
 	@docker-compose up -d
@@ -28,6 +25,7 @@ dev-clean:
 
 unit-test:
 	@echo "[INFO] Running unit tests"
+	@python -m  pytest -s --junitxml=result.xml app/test/unit/contract_item_tests.py
 
 	
 
