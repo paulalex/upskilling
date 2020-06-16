@@ -57,7 +57,6 @@ def execute_query(statement, params):
         if params:
             cursor.execute(statement, params)
         else:
-            print(f"Executing {statement}")
             cursor.execute(statement)
         
         result = cursor.fetchall()
