@@ -1,6 +1,8 @@
-.PHONY : start-dev
+.PHONY : start-dev test-dev
 
 STAGE := "production"
+
+test-dev: start-dev unit-test
 
 start-dev: dev-up dev-schema dev-data
 
@@ -25,7 +27,7 @@ dev-clean:
 
 unit-test:
 	@echo "[INFO] Running unit tests"
-	@python -m  pytest -s --junitxml=result.xml app/test/unit/contract_item_api_tests.py
+	@python -m  pytest -s --junitxml=result.xml app/test/unit/*.py
 
 	
 
