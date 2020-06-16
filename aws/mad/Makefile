@@ -25,7 +25,7 @@ dev-clean:
 
 unit-test:
 	@echo "[INFO] Running unit tests"
-	@python -m  pytest -s --junitxml=result.xml app/test/unit/contract_item_tests.py
+	@python -m  pytest -s --junitxml=result.xml app/test/unit/contract_item_api_tests.py
 
 	
 

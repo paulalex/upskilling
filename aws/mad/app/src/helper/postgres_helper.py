@@ -4,6 +4,13 @@ import functools
 import psycopg2
 
 def execute_update(statement, params):
+    """Execute a database update using the supplied prepared statement and tuple of parameters, this returns
+    no values from the database.
+
+        Args:
+            statement: Prepared statement that should be executed.
+            params: A tuple of parameters that map to the bind variables in the statement.
+    """
     log(statement)
     connection = None
     cursor = None
@@ -30,6 +37,16 @@ def execute_update(statement, params):
         raise e
 
 def execute_query(statement, params):
+    """Execute a database query using the supplied prepared statement and tuple of parameters and return
+    the output cursor.
+
+        Args:
+            statement: Prepared statement that should be executed.
+            params: A tuple of parameters that map to the bind variables in the statement.
+
+        Returns:
+            The output cursor as a map which represents the data items returned when executing the supplied query and bind variables.
+    """
     log(statement)
     connection = None
 
