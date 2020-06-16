@@ -3,7 +3,6 @@ import functools
 
 import psycopg2
 
-@log
 def execute_update(statement, params):
     log(statement)
     connection = None
@@ -29,7 +28,7 @@ def execute_update(statement, params):
             connection.close()
 
         raise e
-@log
+
 def execute_query(statement, params):
     log(statement)
     connection = None

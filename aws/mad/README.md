@@ -2,6 +2,14 @@
 
 Sample application based on the Master Acceptance Database, a number of the tables have been extracted and fields have been created in a postgres database and the resources exposed via a rest CRUD API.
 
+## Create a virtual environment or use your existing virtual environment and install dependencies
+
+`mkvirtualenv mad`
+
+`workon mad`
+
+`pip install -r requirements.txt`
+
 ## Start development environment
 
 `make start-dev`
@@ -25,8 +33,3 @@ Sample application based on the Master Acceptance Database, a number of the tabl
 ## Run unit tests
 
 `make unit-test`
-
-
-
-
-
