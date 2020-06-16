@@ -4,6 +4,9 @@ STAGE := "production"
 
 start-dev: dev-up dev-schema dev-data
 
+dev-env:
+	@export $(cat ./database/dev-db.env | xargs)
+
 dev-up:
 	@echo "[INFO] Starting development environment"
 	@docker-compose up -d

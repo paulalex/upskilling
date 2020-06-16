@@ -33,3 +33,7 @@ Sample application based on the Master Acceptance Database, a number of the tabl
 ## Run unit tests
 
 `make unit-test`
+
+## Export the environment file to the shell (for running scripts directly)
+
+`export $(cat ./database/dev-db.env | xargs)`
