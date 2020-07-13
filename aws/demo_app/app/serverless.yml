@@ -1,26 +1,130 @@
-service: hello-world-serverless
+service: iGas-api-proxy
 
+plugins:
+  - serverless-pseudo-parameters
+  - serverless-python-requirements
+custom:
+  apiPrefixRest: rest/igas
 package:
   individually: true
-
+  include:
+    - gas_api.py
+    - gas_api_controller.py
+    - gas_api_service.py
+    - gas_api_model.py
+    - gas_api_exception.py
+    - gas_api_validator.py
+  exclude:
+    - ./**
+pythonRequirements:
+    slim: true
 provider:
   name: aws
-  region: eu-west-2
+  region: eu-west-1
   stage: ${opt:stage,'dev'}
   runtime: python3.8
   stackTags:
-    PRODUCT: lab
     STAGE: ${self:provider.stage}
   apiGateway:
-    restApiId: ${ssm:/hello-world/hello_api_id/${self:provider.stage}}
-    restApiRootResourceId: ${ssm:/hello-world/hello_api_base/${self:provider.stage}}
-
+    restApiId: ${ssm:/config/openit/aws/dap/dap_api_id/${self:provider.stage}}
+    restApiRootResourceId: ${ssm:/config/openit/aws/dap/dap_api_base/${self:provider.stage}}
+  environment:
+    API_KEY: "xrLBqJ9VEe4iq9JjZd3OnfCSGTO8HTzH"
 functions:
-  hello:
-    handler: handler.hello
+  read_mprn:
+    handler: gas_api.read_mprn
     events:
       - http:
-          path: say/hello
+          path: "${self:custom.apiPrefixRest}/mprn/{mprn}"
           method: get
           cors: true
+          integration: lambda
           private: false
+          request:
+            parameters:
+              paths:
+                mprn: true
+            template:
+              application/json: >
+                {
+                  "mprn": "$input.params('mprn')"
+                }
+          response:
+            headers:
+              Content-Type: "'application/json'"
+            statusCodes:
+              200:
+                pattern: ''
+              400:
+                pattern: '.*400.*'
+                template: ${file(resources/error-template/error-response-template.vtl)}
+              404:
+                pattern: '.*404.*'
+                template: ${file(resources/error-template/error-response-template.vtl)}
+              500:
+                pattern:  '.*server_error.*'
+                template: ${file(resources/error-template/500-response-template.vtl)}
+  read_supplier:
+    handler: gas_api.read_supplier
+    events:
+      - http:
+          path: "${self:custom.apiPrefixRest}/supplier"
+          method: get
+          cors: true
+          integration: lambda
+          private: false
+          request:
+            parameters:
+              querystrings:
+                mprn: true
+            template:
+              application/json: >
+                {
+                  "mprn": "$input.params('mprn')"
+                }
+          response:
+            headers:
+              Content-Type: "'application/json'"
+            statusCodes:
+              200:
+                pattern: ''
+              400:
+                pattern: '.*400.*'
+                template: ${file(resources/error-template/error-response-template.vtl)}
+              404:
+                pattern: '.*404.*'
+                template: ${file(resources/error-template/error-response-template.vtl)}
+              500:
+                pattern:  '.*server_error.*'
+                template: ${file(resources/error-template/500-response-template.vtl)}
+resources:
+  Resources:
+    IGasParameterRequestValidator:
+      Type: AWS::ApiGateway::RequestValidator
+      Properties:
+        Name: IGasParameterRequestValidator
+        RestApiId: ${ssm:/config/openit/aws/dap/dap_api_id/${self:provider.stage}}
+        ValidateRequestBody: false
+        ValidateRequestParameters: true
+    ApiGatewayMethodRestIgasSupplierGet:
+      Properties:
+        RequestValidatorId:
+          Ref: IGasParameterRequestValidator
+    ApiGatewayMethodRestIgasMprnMprnVarGet:
+      Properties:
+        RequestValidatorId:
+          Ref: IGasParameterRequestValidator
+    GatewayResponseClientError:
+      Type: 'AWS::ApiGateway::GatewayResponse'
+      Properties:
+        RestApiId: ${ssm:/config/openit/aws/dap/dap_api_id/${self:provider.stage}}
+        ResponseType: DEFAULT_4XX
+        ResponseTemplates:
+          application/json: ${file(resources/error-template/gateway-response-template.vtl)}
+    GatewayResponseServerError:
+      Type: 'AWS::ApiGateway::GatewayResponse'
+      Properties:
+        RestApiId: ${ssm:/config/openit/aws/dap/dap_api_id/${self:provider.stage}}
+        ResponseType: DEFAULT_5XX
+        ResponseTemplates:
+          application/json: ${file(resources/error-template/gateway-response-template.vtl)}

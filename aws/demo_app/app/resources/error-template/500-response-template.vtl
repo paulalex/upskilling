@@ -1,0 +1,9 @@
+#set ($errorMessageObj = $util.parseJson($input.path('$.errorMessage')))
+{
+  "requestId": "$context.requestId",
+  "type": "$errorMessageObj.type",
+  "title": "$errorMessageObj.title",
+  "detail": "$errorMessageObj.detail",
+  "status": "$errorMessageObj.status",
+  "errors" : ["Internal Server Error"]
+}

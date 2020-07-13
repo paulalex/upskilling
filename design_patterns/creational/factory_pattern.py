@@ -17,6 +17,10 @@ class Sprite(Drink):
     def pour(self):
         print(f"Pouring Sprite.....")
 
+class Lilt(Drink):
+    def pour(self):
+        print(f"Pouring Lilt.....")
+
 class DrinkFactory(ABC):
     def create(self):
         return Coke()
@@ -33,9 +37,13 @@ class SpriteFactory(DrinkFactory):
     def create(self):
         return Sprite()
 
+class LiltFactory(DrinkFactory):
+    def create(self):
+        return Lilt()
+
 
 if __name__ == "__main__":
-    factories = [CokeFactory(), PepsiFactory(), SpriteFactory()]
+    factories = [CokeFactory(), PepsiFactory(), SpriteFactory(), LiltFactory()]
 
     for factory in factories:
         factory.create().pour()

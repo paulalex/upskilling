@@ -1,0 +1,7 @@
+{
+    "python.languageServer": "Jedi",
+    "python.pythonPath": "/home/paul/.pyenv/versions/app/bin/python",
+    "python.autoComplete.extraPaths": [
+        "/mnt/c/Users/Ockle1P/dev/git_repos/ockleford/upskilling/aws/demo_app/app"
+    ]
+}
